@@ -17,7 +17,6 @@ class Profile(models.Model):
         self.save()
 
 
-
 class Image(models.Model):
     image = models.ImageField(upload_to = 'images/')
     image_name = models.CharField(max_length=30)
@@ -26,3 +25,6 @@ class Image(models.Model):
 
     def __str__(self):
         self.image_name
+
+    def save_images(self):
+        self.save()

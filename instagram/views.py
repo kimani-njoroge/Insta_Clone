@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import ProfileForm
 from .models import Image,Profile
 
@@ -26,3 +26,9 @@ def addprofile(request):
 def showprofile(request, profile_id):
     profile = Profile.objects.get(id=profile_id)
     return render(request, 'profile/profile.html',{"profile":profile})
+
+
+@login_required(login_url='/accounts/login/')
+def addimages(request):
+
+    return redirect(index)
