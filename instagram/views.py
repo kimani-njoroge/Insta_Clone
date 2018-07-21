@@ -20,3 +20,9 @@ def addprofile(request):
     else:
         form = ProfileForm()
     return render(request, 'profile/newprofile.html', {"form":form})
+
+
+@login_required(login_url='/accounts/login/')
+def showprofile(request, profile_id):
+    profile = Profile.objects.get(id=profile_id)
+    return render(request, 'profile/profile.html',{"profile":profile})
