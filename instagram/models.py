@@ -13,6 +13,10 @@ class Profile(models.Model):
     def __str__(self):
         return self.insta_user
 
+    def profile_save(self):
+        self.save()
+
+
 
 class Image(models.Model):
     image = models.ImageField(upload_to = 'images/')
