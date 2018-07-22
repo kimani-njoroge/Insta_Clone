@@ -59,3 +59,11 @@ def addimages(request):
 #     return render(request,'imagedetails.html',{"images":images})
 
 
+@login_required(login_url='/accounts/login/')
+def search_result(request):
+    if 'query' in request.GET and request.GET['query']:
+        query = request.GET.get("query")
+        user = Profile.profile_search(query)
+        return render(request,'search.html',{"user":user})
+    else:
+        return render(request,'search.html')
