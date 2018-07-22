@@ -20,8 +20,10 @@ class Profile(models.Model):
 class Image(models.Model):
     image = models.ImageField(upload_to = 'images/')
     image_name = models.CharField(max_length=30)
-    image_caption = models.TextField(max_length=100)
-    profile = models.ForeignKey(Profile)
+    image_caption = models.TextField(blank=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    profile = models.ForeignKey(Profile,on_delete=models.CASCADE)
+
 
     def __str__(self):
         self.image_name

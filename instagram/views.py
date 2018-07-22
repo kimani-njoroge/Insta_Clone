@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from .forms import ProfileForm
+from .forms import ProfileForm,ImageForm
 from .models import Image,Profile
 
 # Create your views here.
@@ -30,5 +30,18 @@ def showprofile(request, profile_id):
 
 @login_required(login_url='/accounts/login/')
 def addimages(request):
-
-    return redirect(index)
+    current_user = request.user
+    profile = Profile.objects.all()
+    for profile in profile:
+        if profile.user.id == current_user.id:
+            if request.method == 'POST':
+                form = ImageForm(request.POST,request.FILES)
+                if form.is_valid():
+                    image_post = form.save(commit=False)
+                    image_post.author = current_user
+                    image_post.profile = profile
+                    image_post.save()
+                    return redirect('index')
+            else:
+                form = ImageForm
+    return render(request, 'imagepost.html',{"image_form":form,"user":current_user})
