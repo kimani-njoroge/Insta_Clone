@@ -16,6 +16,7 @@ def index(request):
 @login_required(login_url='/accounts/login/')
 def addprofile(request):
     current_user = request.user
+    profile = Profile.objects.filter(user_id=current_user)
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES)
         if form.is_valid():
@@ -24,7 +25,7 @@ def addprofile(request):
             profile.save()
     else:
         form = ProfileForm()
-    return render(request, 'profile/newprofile.html', {"form":form})
+    return render(request, 'profile/newprofile.html', {"form":form,"profile":profile})
 
 
 @login_required(login_url='/accounts/login/')

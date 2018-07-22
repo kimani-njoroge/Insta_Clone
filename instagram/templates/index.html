@@ -4,13 +4,13 @@
     <div class="container">
         <h1>Hi,{{ user }}</h1>
             {% for image in images %}
-                <div class="card">
+                <div class="card" style="width: 18rem;">
                     <div class="card-header">
                         {{ image.author }}
                     </div>
-{#                    <div class="body">#}
-                        <img src="{{  image.image.url}}" alt="">
-{#                    </div>#}
+                    <div class="body">
+                        <img src="{{  image.image.url}}"  alt="">
+                    </div>
                 </div>
             {% endfor %}
     </div>
