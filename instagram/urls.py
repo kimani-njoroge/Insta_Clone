@@ -9,6 +9,7 @@ urlpatterns=[
     url(r'^showprofile/(\d+)',views.showprofile,name = 'profile'),
     url(r'^imagepost/',views.addimages,name = 'imagepost'),
 
+
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

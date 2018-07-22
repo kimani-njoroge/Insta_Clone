@@ -51,3 +51,11 @@ def addimages(request):
             else:
                 form = ImageForm
     return render(request, 'imagepost.html',{"image_form":form,"user":current_user})
+
+
+# @login_required(login_url='/accounts/login/')
+# def showdetails(request,pk):
+#     images = Image.objects.all().filter(author_id=pk)
+#     return render(request,'imagedetails.html',{"images":images})
+
+
