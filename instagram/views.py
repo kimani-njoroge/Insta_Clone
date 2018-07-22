@@ -4,9 +4,14 @@ from .forms import ProfileForm,ImageForm
 from .models import Image,Profile
 
 # Create your views here.
-
+@login_required(login_url='/accounts/login/')
 def index(request):
-    return render(request,'index.html')
+    current_user = request.user
+    images = Image.objects.all()
+    profile = Profile.objects.all()
+    user = Profile.objects.get(user=current_user)
+    print(user)
+    return render(request,'index.html',{"images":images,"profile":profile,"user":user})
 
 @login_required(login_url='/accounts/login/')
 def addprofile(request):

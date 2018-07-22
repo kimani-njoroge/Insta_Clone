@@ -9,12 +9,18 @@ class Profile(models.Model):
     profile_photo = models.ImageField(upload_to = 'profpic/')
     bio = models.TextField(max_length=100)
     user = models.ForeignKey(User)
+    insta_name = models.CharField(max_length=30)
 
     def __str__(self):
-        return self.insta_user
+        return self.insta_name
 
     def profile_save(self):
         self.save()
+
+    @classmethod
+    def get_profs(cls):
+        profile = cls.objects.all()
+        return profile
 
 
 class Image(models.Model):
@@ -30,3 +36,8 @@ class Image(models.Model):
 
     def save_images(self):
         self.save()
+
+    @classmethod
+    def get_images(cls):
+        images = cls.objects.all()
+        return images

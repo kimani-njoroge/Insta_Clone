@@ -1,5 +1,18 @@
-{%extends "registration/base.html" %}
+{%extends "base.html" %}
 {% load bootstrap4 %}
 {% block content %}
-    <h1>test</h1>
+    <div class="container">
+        <h1>Hi,{{ user }}</h1>
+            {% for image in images %}
+                <div class="card">
+                    <div class="card-header">
+                        {{ image.profile.insta_name }}
+                    </div>
+{#                    <div class="body">#}
+                        <img src="{{  image.image.url}}" alt="">
+{#                    </div>#}
+                </div>
+            {% endfor %}
+    </div>
+
 {% endblock %}

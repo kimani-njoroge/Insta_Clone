@@ -1,4 +1,4 @@
-{%extends "registration/base.html" %}
+{%extends "base.html" %}
 {% load bootstrap4 %}
 {% block content %}
     <div class="container">
@@ -6,7 +6,9 @@
             <img src="{{ profile.profile_photo.url }}" class="img-responsive" alt="image">
         </div>
         <div class="row">
-            {{ profile.bio }}
+            <p>{{ profile.bio }}</p><br>
+
         </div>
+    <p>{{ profile.insta_name }}</p>
     </div>
 {% endblock %}
