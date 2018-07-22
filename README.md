@@ -56,6 +56,12 @@ An app to test my understanding of various concepts
   There are a few bugs at the moment:
   * When you log in as new user the app breaks since you haven't created a profile
   * The site is not fully responsive
+  
+## To-DO
+  * add search functionality
+  * route image to image details
+  * add tests for the app
+  * style more and make it responsive
 
 ## Support Details
   In the case of technical difficulties or in need of assistance contact me at kimani064@gmail.com
