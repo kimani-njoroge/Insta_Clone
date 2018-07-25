@@ -46,3 +46,8 @@ class Image(models.Model):
     def get_images(cls):
         images = cls.objects.all()
         return images
+
+class Comment(models.Model):
+    user = models.ForeignKey(User)
+    image = models.ForeignKey(Image)
+    comment_text = models.CharField(max_length=100)
