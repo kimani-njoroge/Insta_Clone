@@ -37,7 +37,7 @@ def showprofile(request, user_id):
     profile = Profile.objects.get(user=users)
     followers = len(Follow.objects.followers(users))
     following = len(Follow.objects.following(users))
-    return render(request, 'profile/profile.html',{"profile":users,"user":profile,"followers":followers,"following":following})
+    return render(request, 'profile/profile.html',{"profile":users,"user":profile,"followers":followers,"following":following,"follow":follow})
 
 
 @login_required(login_url='/accounts/login/')
@@ -67,6 +67,12 @@ def showdetails(request,profile_id):
     except DoesNotExist:
         raise Http404()
     return render(request,'imagedetails.html',{"images":images})
+
+@login_required(login_url='/accounts/login/')
+def follow(request,user_id):
+    users = User.objects.get(id=user_id)
+    follow = Follow.objects.add_follower(request.user,users)
+    return render(request,'profile/profile.html',{"users":users,"follow":follow})
 
 #
 # @login_required(login_url='/accounts/login/')

@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c97ec5cb-3092-4eac-bf3c-f482ab5d5318" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/profpic/images.jpeg" afterPath="$PROJECT_DIR$/media/profpic/images.jpeg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/profpic/images_8.jpeg" afterPath="$PROJECT_DIR$/media/profpic/images_8.jpeg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/instagram/templates/index.html" afterPath="$PROJECT_DIR$/instagram/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/instagram/templates/navbar.html" afterPath="$PROJECT_DIR$/instagram/templates/navbar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/instagram/templates/profile/profile.html" afterPath="$PROJECT_DIR$/instagram/templates/profile/profile.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/instagram/templates/registration/profile.html" afterPath="$PROJECT_DIR$/instagram/templates/registration/profile.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/instagram/urls.py" afterPath="$PROJECT_DIR$/instagram/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/instagram/views.py" afterPath="$PROJECT_DIR$/instagram/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/thegram/settings.py" afterPath="$PROJECT_DIR$/thegram/settings.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,11 +21,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/instagram/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="8" column="77" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="77" />
+            <state relative-caret-position="198">
+              <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -73,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/instagram/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="39" column="125" lean-forward="false" selection-start-line="39" selection-start-column="125" selection-end-line="39" selection-end-column="125" />
+            <state relative-caret-position="540">
+              <caret line="39" column="141" lean-forward="false" selection-start-line="39" selection-start-column="141" selection-end-line="39" selection-end-column="141" />
               <folding>
                 <element signature="e#0#57#0" expanded="true" />
               </folding>
@@ -171,12 +163,12 @@
         <option value="$PROJECT_DIR$/instagram/models.py" />
         <option value="$PROJECT_DIR$/todo.txt" />
         <option value="$PROJECT_DIR$/instagram/templates/navbar.html" />
-        <option value="$PROJECT_DIR$/instagram/urls.py" />
         <option value="$PROJECT_DIR$/instagram/templates/registration/profile.html" />
         <option value="$PROJECT_DIR$/instagram/templates/index.html" />
         <option value="$PROJECT_DIR$/instagram/templates/profile/profile.html" />
         <option value="$PROJECT_DIR$/thegram/settings.py" />
         <option value="$PROJECT_DIR$/instagram/views.py" />
+        <option value="$PROJECT_DIR$/instagram/urls.py" />
       </list>
     </option>
   </component>
@@ -1109,16 +1101,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/instagram/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="77" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="77" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/instagram/templates/profile/profile.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
@@ -1137,10 +1119,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/instagram/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="39" column="125" lean-forward="false" selection-start-line="39" selection-start-column="125" selection-end-line="39" selection-end-column="125" />
+        <state relative-caret-position="540">
+          <caret line="39" column="141" lean-forward="false" selection-start-line="39" selection-start-column="141" selection-end-line="39" selection-end-column="141" />
           <folding>
             <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instagram/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
