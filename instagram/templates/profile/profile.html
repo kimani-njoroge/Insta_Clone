@@ -1,29 +1,42 @@
 {%extends "base.html" %}
 {% load bootstrap4 %}
 {% load friendshiptags %}
+{% load static %}
 {% block content %}
+
+            {% block styles %}
+                {% bootstrap_css %}
+                <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+            {% endblock %}
     <div class="container">
-{#        <div class="row">#}
-{#            <img src="{{ users.profile.profile_photo.url }}" class="img-responsive" alt="image">#}
-{#        </div>#}
-{#        <div class="row">#}
-{#            <p>{{ users.profile.bio }}</p><br>#}
-{##}
-{#        </div>#}
-{#    <p>{{ profile.insta_name }}</p>#}
-    {{ profile }}
-        {{ user.bio }}
-        <img src="{{ user.profile_photo.url }}" alt="">{{ image }}
         <div class="row">
-            <a href="{% url 'follow' user_id=user.id %}"><button class="btn btn-primary">Follow{{ image.author }}</button></a>
-            <p>followers{{ followers }}</p>
-            <p>following{{ following }}</p>
+            <div class="col-md-4">
+                <img src="{{ user.profile_photo.url }}" class="img-responsive" alt="">{{ image }}
+            </div>
+            <div class="col-md-8">
+                <div class="row name">
+                    <h1 class="username">{{ profile }}</h1>
+                    <span class="follow"><a href="{% url 'follow' user_id=user.id %}"><button class="btn btn-primary">Follow{{ image.author }}</button></a></span>
+                </div>
+                <div class="row friendship">
+                    <span class="follower"><p>{{ followers }} <strong>followers</strong></p></span>
+                    <span class="following"><p>{{ following }} <strong>following</strong></p></span>
+                </div>
+                <div class="row">
+                    <span class="profname"><strong>{{ profile }}</strong> : {{ user.bio }}</span>
+                </div>
+            </div>
         </div>
 
-    <div class="row">
-        {% for image in images %}
-        <img src="{{ image.image.url }}" alt="">
-        {% endfor %}
+        <div class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200 }'>
+            {% for image in images %}
+                <div class="grid-item"></div>
+            <img src="{{ image.image.url }}" alt="">
+            {% endfor %}
+        </div>
     </div>
-    </div>
+{% endblock %}
+{% block scripts %}
+{{block.super}}
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 {% endblock %}

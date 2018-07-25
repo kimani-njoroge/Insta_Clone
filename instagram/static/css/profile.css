@@ -1,0 +1,23 @@
+.img-responsive{
+    border-radius: 50%;
+}
+.username{
+    padding-right:5%;
+    padding-left: 10%;
+}
+.follow{
+    margin-top: 2%;
+}
+.follower{
+    padding-left: 15%;
+    padding-right: 15%;
+}
+.name{
+    margin-bottom: 3%;
+}
+.friendship{
+    margin-bottom: 3%;
+}
+.profname{
+    padding-left: 15%;
+}
