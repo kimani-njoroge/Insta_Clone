@@ -1,5 +1,6 @@
 {%extends "base.html" %}
 {% load bootstrap4 %}
+{% load friendshiptags %}
 {% block content %}
     <div class="container">
 {#        <div class="row">#}
@@ -13,5 +14,16 @@
     {{ profile }}
         {{ user.bio }}
         <img src="{{ user.profile_photo.url }}" alt="">{{ image }}
+        <div class="row">
+            <a href="{% url 'follow' user_id=user.id %}"><button class="btn btn-primary">Follow{{ image.author }}</button></a>
+            <p>followers{{ followers }}</p>
+            <p>following{{ following }}</p>
+        </div>
+
+    <div class="row">
+        {% for image in images %}
+        <img src="{{ image.image.url }}" alt="">
+        {% endfor %}
+    </div>
     </div>
 {% endblock %}
