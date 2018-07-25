@@ -1,7 +1,10 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.http import Http404
 from django.shortcuts import render, redirect
 from .forms import ProfileForm,ImageForm
 from .models import Image,Profile
+from friendship.models import Friend, Follow,Block
 
 # Create your views here.
 @login_required(login_url='/accounts/login/')
@@ -29,9 +32,12 @@ def addprofile(request):
 
 
 @login_required(login_url='/accounts/login/')
-def showprofile(request, profile_id):
-    profile = Profile.objects.get(id=profile_id)
-    return render(request, 'profile/profile.html',{"profile":profile})
+def showprofile(request, user_id):
+    users = User.objects.get(id=user_id)
+    profile = Profile.objects.get(user=users)
+    followers = len(Follow.objects.followers(users))
+    following = len(Follow.objects.following(users))
+    return render(request, 'profile/profile.html',{"profile":users,"user":profile,"followers":followers,"following":following})
 
 
 @login_required(login_url='/accounts/login/')
@@ -53,10 +59,14 @@ def addimages(request):
     return render(request, 'imagepost.html',{"image_form":form,"user":current_user})
 
 
-# @login_required(login_url='/accounts/login/')
-# def showdetails(request,pk):
-#     images = Image.objects.all().filter(author_id=pk)
-#     return render(request,'imagedetails.html',{"images":images})
+@login_required(login_url='/accounts/login/')
+def showdetails(request,profile_id):
+    try:
+        images = Image.objects.get(id=profile_id)
+        print(images)
+    except DoesNotExist:
+        raise Http404()
+    return render(request,'imagedetails.html',{"images":images})
 
 #
 # @login_required(login_url='/accounts/login/')

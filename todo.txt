@@ -1,0 +1,4 @@
+link image to image modal
+search profile name of another user
+like and image
+comment on image

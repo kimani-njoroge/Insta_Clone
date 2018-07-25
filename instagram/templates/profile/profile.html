@@ -2,13 +2,16 @@
 {% load bootstrap4 %}
 {% block content %}
     <div class="container">
-        <div class="row">
-            <img src="{{ profile.profile_photo.url }}" class="img-responsive" alt="image">
-        </div>
-        <div class="row">
-            <p>{{ profile.bio }}</p><br>
-
-        </div>
-    <p>{{ profile.insta_name }}</p>
+{#        <div class="row">#}
+{#            <img src="{{ users.profile.profile_photo.url }}" class="img-responsive" alt="image">#}
+{#        </div>#}
+{#        <div class="row">#}
+{#            <p>{{ users.profile.bio }}</p><br>#}
+{##}
+{#        </div>#}
+{#    <p>{{ profile.insta_name }}</p>#}
+    {{ profile }}
+        {{ user.bio }}
+        <img src="{{ user.profile_photo.url }}" alt="">{{ image }}
     </div>
 {% endblock %}
