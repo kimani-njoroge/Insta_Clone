@@ -83,11 +83,11 @@ def showdetails(request,profile_id):
         raise Http404()
     return render(request,'imagedetails.html',{"images":images})
 
-# @login_required(login_url='/accounts/login/')
-# def search_results(request):
-#     if 'query' in request.GET and request.GET['query']:
-#         query = request.GET.get("query")
-#         user = Profile.profile_search(query)
-#         return render(request,'search.html',{"user":user})
-#     else:
-#         return render(request,'search.html')
+@login_required(login_url='/accounts/login/')
+def search_results(request):
+    if 'query' in request.GET and request.GET['query']:
+        query = request.GET.get("query")
+        search_term = Profile.profile_search(query)
+        return render(request,'search.html',{"search_term":search_term})
+    else:
+        return render(request,'search.html')

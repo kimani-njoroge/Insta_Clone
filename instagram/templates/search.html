@@ -2,11 +2,20 @@
 {% load bootstrap4 %}
 {% block content %}
     <div class="container">
+
+    <div class="row">
+           {% if search_term%}
+               <h2>Found {{ search_term|length }} profile(s) with the username {{message}}</h2>
+           {% else %}
+               <h2> Found 0 profile(s)  with the username {{message}}</h2>
+           {% endif %}
+
+       </div>
         <div class="row">
-            {% if user %}
-                {% for suser in user %}
+            {% if search_term %}
+                {% for st in search_term %}
                     <div class="col-sm-6 col-md-3">
-                        <h1>{{suser.user.username}}</h1>
+                        <h1>{{st.user.username}}</h1>
                     </div>
                 {% endfor %}
             {% endif %}
