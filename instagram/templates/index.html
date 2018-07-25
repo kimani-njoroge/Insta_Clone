@@ -1,16 +1,39 @@
 {%extends "base.html" %}
 {% load bootstrap4 %}
+{% load static %}
 {% block content %}
+            {% block styles %}
+                {% bootstrap_css %}
+                <link rel="stylesheet" href="{% static 'css/index.css' %}">
+            {% endblock %}
     <div class="container">
         <h1>Hi,{{ user }}</h1>
             {% for image in images %}
-                <div class="card" style="width: 18rem;">
+                <div class="card center" >
                     <div class="card-header">
                         <a href="{% url 'profile' user_id=image.author_id  %}">{{ image.author }}</a>
                     </div>
-                    <div class="body">
-                        <img src="{{ image.image.url }}"  class="img-responsive" alt="" data-toggle="modal" data-target="#{{ image.id }}" >
+                    <div class="card-body">
+                        <img src="{{ image.image.url }}" class="img-responsive" alt="" data-toggle="modal" data-target="#{{ image.id }}" >
                     </div>
+{#                <div class="card-footer">#}
+{#                    <ul class="comment-list">#}
+{#                               <li class="comment-list__comment">#}
+{#                                 <a class="user" href="{% url 'profile' image.profile.user_id %}">#}
+{#                                   {{ image.profile.user.username }}#}
+{#                                 </a>#}
+{#                                 <span class="comment">{{ image.image_name}}</span>#}
+{#                               </li>#}
+{#                               {% for comment in image.comment_set.all %}#}
+{#                                 <li class="comment-list__comment">#}
+{#                                   <a href="{% url 'profile' comment.user.user_id %}" class="user">#}
+{#                                     {{ comment.user.username }}#}
+{#                                   </a>#}
+{#                                   <span class="comment">{{ comment.comment }}</span>#}
+{#                                 </li>#}
+{#                               {% endfor %}#}
+{#                            </ul>#}
+{#                </div>#}
                 </div>
             {% endfor %}
              {% for image in images %}
@@ -28,6 +51,7 @@
                       </div>
                         <div class="modal-footer">
                             <p>{{ image.image_name }}</p><br>
+
                         </div>
                     </div>
                   </div>
@@ -36,4 +60,8 @@
             {% endfor %}
     </div>
 
+{% endblock %}
+{% block scripts %}
+{{block.super}}
+    <script type="text/javascript" src="{%static 'js/script.js'%}"></script>
 {% endblock %}

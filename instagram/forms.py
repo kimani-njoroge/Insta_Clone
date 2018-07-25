@@ -12,3 +12,4 @@ class ImageForm(forms.ModelForm):
     class Meta:
         model = Image
         exclude = ['profile','author']
+

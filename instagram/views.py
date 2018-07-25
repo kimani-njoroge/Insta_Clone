@@ -2,10 +2,11 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import Http404
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from friendship.exceptions import AlreadyExistsError
 
 from .forms import ProfileForm,ImageForm
-from .models import Image,Profile
+from .models import Image,Profile, Comment
 from friendship.models import Friend, Follow,Block
 
 # Create your views here.
@@ -91,3 +92,29 @@ def search_results(request):
         return render(request,'search.html',{"search_term":search_term})
     else:
         return render(request,'search.html')
+
+@login_required(login_url='/accounts/login/')
+def add_comment(request):
+    comment_text = request.POST.get('comment_text')
+    image_pk = request.POST.get('image_pk')
+    image = Image.objects.get(pk=image_pk)
+    commenter_info = {}
+    try:
+        comment = Comment(comment=comment_text, user=request.user, image=image)
+        comment.save()
+        username = request.user.username
+        profile_url = reverse('profile', kwargs={'username': request.user})
+        commenter_info = {
+            'username': username,
+            'profile_url': profile_url,
+            'comment_text': comment_text
+        }
+        result = 1
+    except Exception as e:
+        print(e)
+        result = 0
+    return {
+        'result': result,
+        'image_pk': image_pk,
+        'commenter_info': commenter_info
+    }
