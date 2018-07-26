@@ -2,7 +2,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import Http404
 from django.shortcuts import render, redirect, get_object_or_404
-from django.urls import reverse
 from friendship.exceptions import AlreadyExistsError
 
 from .forms import ProfileForm,ImageForm,CommentForm
@@ -12,20 +11,15 @@ from friendship.models import Friend, Follow,Block
 # Create your views here.
 @login_required(login_url='/accounts/login/')
 def index(request):
-    # current_user = request.user
     images = Image.objects.all()
     profile = Profile.objects.all()
-    # user = Profile.objects.get(user=current_user)
-    # print(user)
     form = CommentForm()
     comments = Comment.objects.all()
-    print(comments)
     return render(request,'index.html',{"images":images,"profile":profile,"form":form,"comments":comments})
 
 @login_required(login_url='/accounts/login/')
 def addprofile(request):
     current_user = request.user
-    # profile = Profile.objects.filter(user_id=current_user)
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES)
         if form.is_valid():

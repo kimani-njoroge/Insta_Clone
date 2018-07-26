@@ -28,24 +28,6 @@
                             {% endif %}
                         {% endfor %}
                     </div>
-{#                <div class="card-footer">#}
-{#                    <ul class="comment-list">#}
-{#                               <li class="comment-list__comment">#}
-{#                                 <a class="user" href="{% url 'profile' image.profile.user_id %}">#}
-{#                                   {{ image.profile.user.username }}#}
-{#                                 </a>#}
-{#                                 <span class="comment">{{ image.image_name}}</span>#}
-{#                               </li>#}
-{#                               {% for comment in image.comment_set.all %}#}
-{#                                 <li class="comment-list__comment">#}
-{#                                   <a href="{% url 'profile' comment.user.user_id %}" class="user">#}
-{#                                     {{ comment.user.username }}#}
-{#                                   </a>#}
-{#                                   <span class="comment">{{ comment.comment }}</span>#}
-{#                                 </li>#}
-{#                               {% endfor %}#}
-{#                            </ul>#}
-{#                </div>#}
                 </div>
             {% endfor %}
              {% for image in images %}

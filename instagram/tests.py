@@ -40,7 +40,7 @@ class ImageDummyTest(TestCase):
 def get_temporary_image(temp_file):
     size = (200, 200)
     color = (255, 0, 0, 0)
-    profile_photo = Profile.new("RGBA", size, color)
+    profile_photo = Image.new("RGBA", size, color)
     profile_photo.save(temp_file, 'jpeg')
     return temp_file
 
