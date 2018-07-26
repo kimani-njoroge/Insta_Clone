@@ -1,11 +1,11 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import Http404
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from friendship.exceptions import AlreadyExistsError
 
-from .forms import ProfileForm,ImageForm
+from .forms import ProfileForm,ImageForm,CommentForm
 from .models import Image,Profile, Comment
 from friendship.models import Friend, Follow,Block
 
@@ -17,7 +17,10 @@ def index(request):
     profile = Profile.objects.all()
     # user = Profile.objects.get(user=current_user)
     # print(user)
-    return render(request,'index.html',{"images":images,"profile":profile})
+    form = CommentForm()
+    comments = Comment.objects.all()
+    print(comments)
+    return render(request,'index.html',{"images":images,"profile":profile,"form":form,"comments":comments})
 
 @login_required(login_url='/accounts/login/')
 def addprofile(request):
@@ -71,7 +74,7 @@ def addimages(request):
                     image_post.save()
                     return redirect('index')
             else:
-                form = ImageForm
+                form = ImageForm()
     return render(request, 'imagepost.html',{"image_form":form,"user":current_user})
 
 
@@ -92,4 +95,21 @@ def search_results(request):
         return render(request,'search.html',{"search_term":search_term})
     else:
         return render(request,'search.html')
+
+@login_required(login_url='/accounts/login/')
+def addcomment(request,image_id):
+    current_user = request.user
+    if request.method == 'POST':
+        image = get_object_or_404(Image, pk=image_id)
+        form = CommentForm(request.POST,request.FILES)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.user = current_user
+            comment.image = image
+            comment.save()
+            return redirect('index')
+    else:
+        form = CommentForm()
+
+    return render(request, 'index.html',{"form":form})
 

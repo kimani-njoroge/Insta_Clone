@@ -10,6 +10,7 @@ urlpatterns=[
     url(r'^imagepost/',views.addimages,name = 'imagepost'),
     url(r'^search/',views.search_results, name = 'search_results'),
     url(r'follow/(?P<user_id>\d+)', views.follow, name='follow'),
+    url(r'^comment/(?P<image_id>\d+)', views.addcomment, name='comment'),
 
 ]
 if settings.DEBUG:

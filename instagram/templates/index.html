@@ -11,10 +11,22 @@
             {% for image in images %}
                 <div class="card center" >
                     <div class="card-header">
-                        <a href="{% url 'profile' user_id=image.author_id  %}">{{ image.author }}</a>
+                        <img class="rounded-circle" src="{{ image.profile.profile_photo.url }}" alt=""><span><a href="{% url 'profile' user_id=image.author_id  %}">{{ image.author }}</a></span>
                     </div>
                     <div class="card-body">
                         <img src="{{ image.image.url }}" class="img-responsive" alt="" data-toggle="modal" data-target="#{{ image.id }}" >
+                    </div>
+                    <div class="card-footer">
+                        <form action="{% url 'comment' image_id=image.id%}" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {% bootstrap_form form %}
+                            <input type="submit" class="btn btn-outline secondary btn-lg" value="Post">
+                        </form>
+                        {% for comment in comments %}
+                            {% if comment.image_id == image.id %}
+                                <p>{{ comment.comment_text }}</p>
+                            {% endif %}
+                        {% endfor %}
                     </div>
 {#                <div class="card-footer">#}
 {#                    <ul class="comment-list">#}
