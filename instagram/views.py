@@ -48,7 +48,7 @@ def follow(request,user_id):
     try:
         follow = Follow.objects.add_follower(request.user, users)
     except AlreadyExistsError:
-        return Http404
+        raise Http404
     # print("followed")
     return redirect('/showprofile/'+user_id)
 

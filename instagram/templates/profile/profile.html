@@ -16,8 +16,8 @@
             </div>
             <div class="col-md-8">
                 <div class="row name">
-                    <h1 class="username">{{ profile }}</h1>
-                    <span class="follow"><a href="{% url 'follow' user_id=user.id %}"><button class="btn btn-primary">Follow{{ image.author }}</button></a></span>
+                    <h1 class="username">{{ profile }}</h1><span class="follow"><a href="{% url 'follow' user_id=user.id %}"><button class="btn btn-primary">Follow{{ image.author }}</button></a></span>
+
                 </div>
                 <div class="row friendship">
                     <span class="follower"><p>{{ followers }} <strong>followers</strong></p></span>
