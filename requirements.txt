@@ -1,10 +1,10 @@
 config==0.3.9
-dj-database-url==0.5.0
 confusable-homoglyphs==3.1.1
+dj-database-url==0.5.0
 Django==1.11
 django-bootstrap4==0.0.6
-django-heroku==0.3.1
 django-friendship==1.8.0
+django-heroku==0.3.1
 django-registration==2.4.1
 django-tinymce==2.7.0
 gunicorn==19.9.0
