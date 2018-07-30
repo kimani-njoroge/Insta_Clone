@@ -19,7 +19,7 @@
                     <div class="card-footer">
                         {% for comment in comments %}
                             {% if comment.image_id == image.id %}
-                                <p>{{ comment.comment_text }}</p>
+                              <p>{{ comment.user }}  {{ comment.comment_text }}</p>
                             {% endif %}
                         {% endfor %}
                         <form action="{% url 'comment' image_id=image.id%}" method="post" enctype="multipart/form-data">
