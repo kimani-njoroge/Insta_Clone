@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'tinymce',
     'friendship',
+    'pyuploadcare.dj',
 ]
 
 MIDDLEWARE = [
@@ -91,7 +92,10 @@ WSGI_APPLICATION = 'thegram.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
+UPLOADCARE = {
+    'pub_key': config('PUBLIC_KEY'),
+    'secret': config('SECRET_KEY_UPLOAD'),
+}
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',

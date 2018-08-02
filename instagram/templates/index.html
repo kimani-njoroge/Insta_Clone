@@ -14,7 +14,7 @@
                         <img class="rounded-circle" src="{{ image.profile.profile_photo.url }}" alt=""><span><a href="{% url 'profile' user_id=image.author_id  %}">{{ image.author }}</a></span>
                     </div>
                     <div class="card-body">
-                        <img src="{{ image.image.url }}" class="img-responsive" alt="" data-toggle="modal" data-target="#{{ image.id }}" >
+                        <img src="{{ image.image.cdn_url }}" class="img-responsive" alt="" data-toggle="modal" data-target="#{{ image.id }}" >
                     </div>
                     <div class="card-footer">
                         {% for comment in comments %}
@@ -42,7 +42,7 @@
                         </button>
                       </div>
                       <div class="modal-body">
-                          <img src="{{ image.image.url }}" alt="">
+                          <img src="{{ image.image.cdn_url }}" alt="">
                       </div>
                         <div class="modal-footer">
                             <p>{{ image.image_name }}</p><br>

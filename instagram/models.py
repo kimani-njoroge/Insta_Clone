@@ -2,10 +2,11 @@ from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
+from pyuploadcare.dj.models import ImageField
 
 
 class Profile(models.Model):
-    profile_photo = models.ImageField(upload_to = 'profpic/')
+    profile_photo = ImageField()
     bio = models.TextField(max_length=100)
     user = models.ForeignKey(User)
     insta_name = models.CharField(max_length=30)
@@ -28,7 +29,7 @@ class Profile(models.Model):
 
 
 class Image(models.Model):
-    image = models.ImageField(upload_to = 'images/')
+    image = ImageField()
     image_name = models.CharField(max_length=30)
     image_caption = models.TextField(blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
